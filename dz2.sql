@@ -24,10 +24,10 @@ inner join order_details on orders.order_id = order_details.order_id
 group by employees.first_name, employees.last_name;
 
 --Перечень товаров от самых продаваемых до самых непродаваемых
-
-select 
+"Количество штук"
+select
     products.product_name "Наименование товара",
-    sum(order_details.quantity) "Количество штук"
+    sum(order_details.quantity) total_sold
 FROM order_details
 INNER JOIN products ON order_details.product_id = products.product_id
 GROUP BY products.product_name
@@ -35,6 +35,4 @@ ORDER BY total_sold DESC;
 
 
 
-
-
-
+select * from products
